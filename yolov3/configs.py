@@ -25,8 +25,8 @@ YOLO_ANCHORS                = [[[10,  13], [16,   30], [33,   23]],
 TRAIN_YOLO_TINY             = False
 TRAIN_SAVE_BEST_ONLY        = True # saves only best model according validation loss (True recommended)
 TRAIN_SAVE_CHECKPOINT       = False # saves all best validated checkpoints in training process (may require a lot disk space) (False recommended)
-TRAIN_CLASSES               = "mnist/mnist.names"
-TRAIN_ANNOT_PATH            = "mnist/mnist_train.txt"
+TRAIN_CLASSES               = "model_data/classes.txt"
+TRAIN_ANNOT_PATH            = "model_data/train.txt"
 TRAIN_LOGDIR                = "log"
 TRAIN_CHECKPOINTS_FOLDER    = "checkpoints"
 TRAIN_MODEL_NAME            = "yolov3_custom"
@@ -35,20 +35,21 @@ TRAIN_BATCH_SIZE            = 8
 TRAIN_INPUT_SIZE            = 416
 TRAIN_DATA_AUG              = True
 TRAIN_TRANSFER              = False
-TRAIN_FROM_CHECKPOINT       = False # "checkpoints/yolov3_custom_2"
+TRAIN_FROM_CHECKPOINT       = False
+TRAIN_CHECKPOINT_TYPE		= '.h5' # leave '' for '.data-xxxxx-of-xxxxx' checkpoint type
 TRAIN_LR_INIT               = 1e-4
-TRAIN_LR_END                = 1e-6
+TRAIN_LR_END                = 1e-8
 TRAIN_WARMUP_EPOCHS         = 2
 TRAIN_EPOCHS                = 100
 
 # TEST options
-TEST_ANNOT_PATH             = "mnist/mnist_test.txt"
-TEST_BATCH_SIZE             = 4
+TEST_ANNOT_PATH             = "model_data/test.txt"
+TEST_BATCH_SIZE             = 8
 TEST_INPUT_SIZE             = 416
 TEST_DATA_AUG               = False
 TEST_DECTECTED_IMAGE_PATH   = ""
-TEST_SCORE_THRESHOLD        = 0.3
-TEST_IOU_THRESHOLD          = 0.45
+TEST_SCORE_THRESHOLD        = 0.9
+TEST_IOU_THRESHOLD          = 0.5
 
 
 #YOLOv3-TINY WORKAROUND

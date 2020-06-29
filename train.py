@@ -51,7 +51,7 @@ def main():
     yolo = Create_Yolov3(input_size=YOLO_INPUT_SIZE, training=True, CLASSES=TRAIN_CLASSES)
     if TRAIN_FROM_CHECKPOINT:
         try:
-            checkpoint_file = TRAIN_CHECKPOINTS_FOLDER + '/' + TRAIN_MODEL_NAME + '.h5'
+            checkpoint_file = TRAIN_CHECKPOINTS_FOLDER + '/' + TRAIN_MODEL_NAME + TRAIN_CHECKPOINT_TYPE
             yolo.load_weights(checkpoint_file)
         except ValueError:
             print("Shapes are incompatible, transfering Darknet weights")
@@ -94,7 +94,7 @@ def main():
             if global_steps < warmup_steps:# and not TRAIN_TRANSFER:
                 lr = global_steps / warmup_steps * TRAIN_LR_INIT
             else:
-                lr = TRAIN_LR_END + 0.5 * (TRAIN_LR_INIT - TRAIN_LR_END)*(
+                lr = TRAIN_LR_END + 0.2 * (TRAIN_LR_INIT - TRAIN_LR_END)*(
                     (1 + tf.cos((global_steps - warmup_steps) / (total_steps - warmup_steps) * np.pi)))
             optimizer.lr.assign(lr.numpy())
 
