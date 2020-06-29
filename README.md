@@ -1,5 +1,5 @@
 # TensorFlow-2.x-YOLOv3
-# THIS REPO IS CUSTOMISED FROM https://github.com/pythonlessons/TensorFlow-2.x-YOLOv3
+THIS REPO IS CUSTOMISED FROM https://github.com/pythonlessons/TensorFlow-2.x-YOLOv3
 
 YOLOv3 implementation in TensorFlow 2.x, with support for training, transfer learning.
 
